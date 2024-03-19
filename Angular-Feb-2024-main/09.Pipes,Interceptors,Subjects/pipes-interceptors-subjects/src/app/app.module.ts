@@ -6,12 +6,8 @@ import { AppComponent } from './app.component';
 import { ReducePipe } from './reduce.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ReducePipe
-  ],
-  imports: [BrowserModule, AppRoutingModule
-  ],
+  declarations: [AppComponent, ReducePipe],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
