@@ -1,4 +1,4 @@
-<!-- Pipes can also be chained -->
+<!-- Pipes can also be chained, keep THE ORDER in MIND -->
 <div>{{ user |json | uppercase }}</div>
 
 <div>{{ user.list | reduce : sum : 0}}</div>
@@ -8,4 +8,6 @@
 <!-- p от тип async, изчаква самия promise да се резолвне -->
 <div>Promise: {{ p | async }}</div>
 
-<div class="time">Clock: {{ time$ | async }}</div>
+
+<!-- Observable  time$ , simple Clock-->
+<div class="time"><span>Clock:</span> {{ time$ | async | date : "hh:mm:ss"}}</div>

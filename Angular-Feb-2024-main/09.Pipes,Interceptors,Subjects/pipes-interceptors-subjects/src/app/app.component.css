@@ -1,5 +1,4 @@
 .btn {
-    margin: 3em;
     padding: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -18,4 +17,8 @@
     font-size: 30px;
     color: #4CAF50;
     margin: 3em;
+}
+
+span {
+    color: #05722b;
 }
