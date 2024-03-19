@@ -2,4 +2,6 @@
 <!-- Pipes can also be chained -->
 <div>{{ user |json | uppercase }}</div>
 
-<div>{{ user.list }}</div>
+<div>{{ user.list | reduce : sum : 0}}</div>
+
+<button (click)="addProperty()">Add Property</button>
