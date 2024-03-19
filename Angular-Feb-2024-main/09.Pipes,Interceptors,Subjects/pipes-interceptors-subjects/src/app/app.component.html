@@ -1,7 +1,11 @@
-
 <!-- Pipes can also be chained -->
 <div>{{ user |json | uppercase }}</div>
 
 <div>{{ user.list | reduce : sum : 0}}</div>
 
 <button class="btn" (click)="addProperty()">Add Property</button>
+
+<!-- p от тип async, изчаква самия promise да се резолвне -->
+<div>Promise: {{ p | async }}</div>
+
+<div class="time">Clock: {{ time$ | async }}</div>
