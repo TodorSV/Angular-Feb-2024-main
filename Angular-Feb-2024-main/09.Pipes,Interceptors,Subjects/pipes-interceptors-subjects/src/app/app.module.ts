@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { ReducePipe } from './reduce.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { appHttpInterceptorProvider } from './app-http.interceptor';
+import { HomeComponent } from './home/home.component';
+import { LazyModule } from './lazy/lazy.module';
 
 @NgModule({
-  declarations: [AppComponent, ReducePipe],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, ReducePipe, HomeComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, LazyModule],
   providers: [appHttpInterceptorProvider],
   bootstrap: [AppComponent]
 })
