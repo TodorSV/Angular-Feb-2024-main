@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { interval, map } from 'rxjs';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'pipes-interceptors-subjects';
 
   user = { name: 'Django', age: 30, list: [1, 2, 3, 4, 5] };
@@ -30,4 +31,15 @@ export class AppComponent {
 
   // Observable  time$
   time$ = interval(1000).pipe(map(() => new Date()));
+
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.userService.loadUsers().subscribe({
+      next: (data) =>console.log(data),
+      
+    });
+  }
+
 }
