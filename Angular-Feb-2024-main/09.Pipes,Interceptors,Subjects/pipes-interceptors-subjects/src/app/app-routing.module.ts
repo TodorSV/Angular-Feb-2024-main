@@ -7,10 +7,10 @@ const routes: Routes = [
     path: '', pathMatch: 'full', component: HomeComponent,
   },
   {
-    path: 'lazy', 
-    loadChildren: () => import('./lazy/lazy.module').then((m) => m.LazyModule) 
+    path: 'lazy',// Зареждаме LazyModule само когато потребителят поиска или динамично, цялостната идея.
+    loadChildren: () => import('./lazy/lazy.module').then((m) => m.LazyModule),
   },
-  
+
 ];
 
 @NgModule({
