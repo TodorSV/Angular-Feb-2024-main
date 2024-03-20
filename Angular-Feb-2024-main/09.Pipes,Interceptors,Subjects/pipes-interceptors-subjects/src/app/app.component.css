@@ -22,3 +22,34 @@
 span {
     color: #05722b;
 }
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    max-width: 200px;
+    height: 100px;
+}
+
+.nav p {
+   
+    width: 3em;
+    height: 1.5em;
+    padding: 0 0.5em;
+}
+
+
+
+.nav a{
+    padding: 10px 14px;
+    text-decoration: none;
+    background-color: rgb(20, 14, 14);
+    color: #fff;
+    border: 2px solid rgb(67, 66, 66);
+    border-radius: 0.3em;
+}
+
+.nav a:hover{
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+}
