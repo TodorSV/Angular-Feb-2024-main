@@ -1,38 +1,48 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
 
-  // Refresher
+// Refresher
 
-  const p = new Promise((resolve, reject) => {
-    resolve(200);
-  });
+// const p = new Promise((resolve, reject) => {
+//   resolve(200);
+// });
 
-  p.then(console.log);
+// p.then(console.log);
 
-  const o$ = new Observable<number>((obs) => {
-    obs.next(101);
-    obs.next(102);
-    obs.next(103);
+// const observable$ = new Observable<number>((observer) => {
+//   observer.next(101);
+//   observer.next(102);
+//   observer.next(103);
 
-    obs.error(new Error('Something went wrong'));
+//   // obs.error(new Error('Something went wrong'));
 
-    return () => {
-      // Clean up
+//   return () => {
+//     // Clean up
 
-    };
-  });
+//   };
+// });
 
- 
- 
-  o$.pipe(map((n) => n + 1 )).subscribe({
-    next: console.log,
-    error: (err) => console.error('Error form subscribe', err),
-  });
 
- 
+
+// observable$.pipe(map((n) => n + 1)).subscribe({
+//   next: console.log,
+//   error: (err) => console.error('Error form subscribe', err),
+// });
+
+
+// SUBJECTS
+
+const subject$$ = new Subject();
+subject$$.subscribe(console.log); // A
+subject$$.next(100);
+
+subject$$.subscribe(console.log); // B
+subject$$.next(200);
+
+
