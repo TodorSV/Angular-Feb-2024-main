@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
-import { BehaviorSubject, Observable, ReplaySubject, Subject, map } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, Observable, ReplaySubject, Subject, map } from 'rxjs';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)
@@ -58,16 +58,26 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 // Replay Subjects
 
-const rSubject$$ = new ReplaySubject(5);
-rSubject$$.next(1000);
-rSubject$$.subscribe((data) => console.log('Subscriber A', data));
+// const rSubject$$ = new ReplaySubject(5);
+// rSubject$$.next(1000);
+// rSubject$$.subscribe((data) => console.log('Subscriber A', data));
 
 
-for (let i = 1; i <= 30; i++) {
-  rSubject$$.next(i); 
-}
+// for (let i = 1; i <= 30; i++) {
+//   rSubject$$.next(i); 
+// }
 
-console.log('------------------');
+// console.log('------------------');
 
 
-rSubject$$.subscribe((data) => console.log('Subscriber B', data));
+// rSubject$$.subscribe((data) => console.log('Subscriber B', data));
+
+
+// Async Subject
+
+const asyncSubject$$ = new AsyncSubject();
+asyncSubject$$.next(1);
+asyncSubject$$.next(2);
+asyncSubject$$.next(3);
+asyncSubject$$.subscribe((data) => console.log(`Subscriber A', ${data}`));
+asyncSubject$$.complete(); 
