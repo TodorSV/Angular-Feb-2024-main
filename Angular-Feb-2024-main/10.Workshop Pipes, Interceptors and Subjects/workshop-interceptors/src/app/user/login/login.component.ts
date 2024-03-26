@@ -11,7 +11,7 @@ import { EMAIL_DOMAINS } from 'src/app/constants';
 })
 export class LoginComponent {
   domains = EMAIL_DOMAINS;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   login(form: NgForm) {
     if (form.invalid) {
@@ -23,6 +23,5 @@ export class LoginComponent {
     this.userService.login(email, password).subscribe(() => {
       this.router.navigate(['/themes']);
     });
-    
   }
 }

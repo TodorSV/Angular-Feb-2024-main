@@ -10,6 +10,7 @@ import { Post } from './types/post';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  //   THEMES
   getThemes() {
     const { apiUrl } = environment;
     return this.http.get<Theme[]>(`${apiUrl}/themes`);
@@ -21,12 +22,10 @@ export class ApiService {
   }
 
   createTheme(themeName: string, postText: string) {
-    const { apiUrl } = environment;
-    const payload = { themeName, postText };
-
-    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+    return this.http.post<Theme>(`/api/themes`, { themeName, postText });
   }
 
+  // POSTS
   getPosts(limit?: number) {
     const { apiUrl } = environment;
     let url = `${apiUrl}/posts`;

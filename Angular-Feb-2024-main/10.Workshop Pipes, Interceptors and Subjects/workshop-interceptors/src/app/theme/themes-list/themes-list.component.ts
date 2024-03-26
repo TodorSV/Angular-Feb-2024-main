@@ -24,7 +24,14 @@ export class ThemesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getThemes().subscribe((themes) => {
-      this.themes = themes;
+      // TODO: not recommended to do it on front end!
+      const sortDatesCB = (
+        a: { created_at: string },
+        b: { created_at: string }
+      ) => (new Date(b.created_at) as any) - (new Date(a.created_at) as any);
+      const tempThemes = themes.sort(sortDatesCB as any).slice(0, 5);
+
+      this.themes = tempThemes;
 
       setTimeout(() => {
         this.isLoading = false;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -14,12 +15,18 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
 
-  get firstName(): string {
-    return this.userService.user?.firstName || '';
+  get username(): string {
+    return this.userService.user?.username || '';
   }
 
   logout() {
-    this.userService.logout();
-    this.router.navigate(['/home']);
+    this.userService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/auth/login']);
+      },
+      error: () => {
+        this.router.navigate(['/auth/login']);
+      },
+    });
   }
 }
